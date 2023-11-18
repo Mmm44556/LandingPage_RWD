@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+    html {
+      background-color: hsl(218, 44%, 22%);
+      display: flex;
+      justify-content: center;
+    }
+
+    * {
+      font-size: 15px;
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      border-radius: 10px;
+    }
+
+    .card {
+      background-color: hsl(212, 45%, 89%);
+      display: grid;
+      margin-top: 50%;
+      position: relative;
+      width: 300px;
+      height: 500px;
+      grid-template-rows: repeat(2, 250px);
+
+      .card-img {
+        width: 85%;
+        margin: 15px 50%;
+        transform: translateX(-50%);
+      }
+
+      .card-body {
+        text-align: center;
+
+        padding: 30px;
+        padding-top: 40px;
+
+        .card-title {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <img src="./images/image-qr-code.png" alt="QR-code" class="card-img">
+    <div class="card-body">
+      <h2 class="card-title">
+        Improve your front-end skills by building projects.
+      </h2>
+      <p class="card-text">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis magni
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

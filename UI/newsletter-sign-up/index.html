@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <style>
+    @font-face {
+      font-family: 'Roboto-Bold';
+      src: url('./assets/fonts/Roboto-Bold.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Roboto-Regular';
+      src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+    }
+
+    * {
+      font-family: 'Roboto-Regular', sans-serif;
+      font-size: 16px;
+    }
+
+    html {
+      background-color: hsl(235, 18%, 26%);
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .newsletter {
+      max-width: 100%;
+      background-color: hsl(0, 0%, 100%);
+      display: grid;
+      grid-template-areas: "main img";
+      border-radius: 25px;
+
+      & {
+        @media (max-width:375px) {
+          grid-template-areas:
+            "img"
+            "main"
+          ;
+
+        }
+      }
+
+      .newsletter-body {
+        grid-area: main;
+        padding: 50px;
+
+        .newsletter-header {
+          &>h1 {
+            text-align: center;
+            font-size: 3rem !important;
+          }
+        }
+
+        .newsletter-footer,
+        .newsletter-footer>* {
+          display: block;
+          width: 100%;
+          outline: none;
+          border: none;
+
+          & p {
+
+            font-family: 'Roboto-bold';
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+
+            & span {
+              font-family: inherit;
+
+            }
+
+            & label {
+              color: rgba(255, 19, 19, 0.879);
+              font-family: inherit;
+            }
+          }
+
+
+
+          & input {
+            text-indent: 15px;
+            height: 50px;
+            border: 1px solid hsl(231, 7%, 60%);
+            border-radius: 10px;
+            margin-bottom: 25px;
+
+
+            &:invalid {
+
+              background-color: rgba(255, 0, 0, 0.147);
+              color: rgba(255, 19, 19, 0.879);
+
+
+
+            }
+
+          }
+
+          & button {
+            background-color: hsl(234, 29%, 20%);
+            padding: 15px 45px;
+            display: block;
+            border-radius: 10px;
+            color: white;
+
+            &:hover {
+              background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
+              transition: all 0.5s ease-out;
+              background-size: 200% auto;
+              box-shadow: 0 0 20px #eee;
+              background-position: right center;
+              box-shadow: 0px 15px 30px -10px #DD2476;
+              ;
+              color: #fff;
+              cursor: pointer;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+
+
+
+
+      .newsletter-img {
+        grid-area: img;
+        padding: 25px;
+      }
+    }
+
+    ul {
+      list-style-image: url('/assets/images/icon-list.svg');
+
+      & li {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="newsletter">
+    <div class="newsletter-body">
+      <div class="newsletter-header">
+        <h1>Stay updated!</h1>
+        Join 60,000+ product managers receiving monthly updates on:
+        <ul>
+          <li>Product discovery and building what matters</li>
+          <li>Measuring to ensure updates are a success</li>
+          <li>And much more!</li>
+        </ul>
+      </div>
+
+      <div class="newsletter-footer">
+
+        <p>
+          <span>Email address</span>
+          <label id="newsletter-input-hint"></label>
+        </p>
+        <input type="email" name="email" id="newsletter-input" placeholder="email@company.com" oninput="valid()" />
+
+        <button type="submit" id="newsletter-submit"
+         onclick="submit()">
+          Subscribe to monthly newsletter
+        </button>
+
+      </div>
+    </div>
+
+    <picture class="newsletter-img">
+      <source media="(max-width:375px )" srcset="/assets/images/illustration-sign-up-mobile.svg">
+      <img src="/assets/images/illustration-sign-up-desktop.svg" alt="illustration">
+    </picture>
+
+
+
+  </div>
+
+</body>
+<script>
+  const input = document.getElementById('newsletter-input');
+  const hint = document.getElementById('newsletter-input-hint')
+  const btn = document.getElementById('newsletter-submit')
+  const btnStyle = window.getComputedStyle(btn)
+
+
+  function valid() {
+
+    if (!input.validity.valid) {
+      hint.innerText = 'Valid email required';
+      btn.style.cssText = '';
+    } else {
+      hint.innerText = '';
+      if (input.value.length == 0) {
+        btn.style.cssText = '';
+      } else {
+        btn.style.cssText = `
+        background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
+              transition:all 0.5s ease-out;
+              background-size: 200% auto;
+              box-shadow: 0 0 20px #eee;
+              background-position: right center;
+              box-shadow: 0px 15px 30px -10px #DD2476;
+              ;
+              color: #fff;
+              cursor: pointer;
+              text-decoration: none;
+      `
+      }
+
+    }
+  }
+function submit() {
+  
+}
+
+</script>
+
+</html>
